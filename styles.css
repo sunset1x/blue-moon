@@ -398,6 +398,31 @@ h1 span {
   background: #00131c;
 }
 
+/* When video is playing, remove overlay */
+.menu-card__video.playing::after {
+  display: none;
+}
+
+/* Make sure iframe receives clicks */
+.menu-card__video.playing iframe {
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* Disable hover effects so they don't block clicks */
+.menu-card.video-active {
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+
+/* Prevent the card from intercepting clicks */
+.menu-card.video-active * {
+  pointer-events: auto;
+}
+
+
 .menu-card__video iframe {
   width: 100%;
   height: 100%;
@@ -414,6 +439,8 @@ h1 span {
 .menu-card:hover .menu-card__video img {
   transform: scale(1.025);
 }
+
+
 
 .menu-card__video::after {
   position: absolute;
