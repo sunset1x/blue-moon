@@ -97,7 +97,7 @@ function createTutorialCard(tutorial) {
   playButton.className = "play-button";
   playButton.setAttribute("aria-hidden", "true");
 
-  // Actual YouTube embed (hidden until clicked)
+  // Actual YouTube embed
   const iframe = document.createElement("iframe");
   iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(
     tutorial.youtubeId
@@ -105,16 +105,13 @@ function createTutorialCard(tutorial) {
   iframe.allow =
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   iframe.allowFullscreen = true;
-  iframe.hidden = true;
 
-  // When clicked → hide thumbnail + play button, show iframe
+  // On click → swap thumbnail + play button for iframe
   videoWrapper.addEventListener("click", () => {
-    thumbnail.hidden = true;
-    playButton.hidden = true;
-    iframe.hidden = false;
+    videoWrapper.replaceChildren(iframe);
   });
 
-  videoWrapper.append(thumbnail, playButton, iframe);
+  videoWrapper.append(thumbnail, playButton);
 
   // Content section
   const content = document.createElement("div");
@@ -145,6 +142,7 @@ function createTutorialCard(tutorial) {
 
   return card;
 }
+
 
 // Filter tutorials based on active game + search
 function getFilteredTutorials() {
