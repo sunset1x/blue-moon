@@ -108,8 +108,13 @@ function createTutorialCard(tutorial) {
 
   // On click → swap thumbnail + play button for iframe
   videoWrapper.addEventListener("click", () => {
-    videoWrapper.replaceChildren(iframe);
-  });
+  // Replace thumbnail with iframe
+  videoWrapper.replaceChildren(iframe);
+
+  // Allow interaction with the video
+  videoWrapper.classList.add("playing");
+  card.classList.add("video-active");
+});
 
   videoWrapper.append(thumbnail, playButton);
 
