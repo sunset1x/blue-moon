@@ -63,7 +63,7 @@ const tutorials = [
   }
   {
     game: "Fortnite",
-    title: "Keyboard Optimization Tool",
+    title: "Keyboard Input Optimization Tool",
     tag: "Performance",
     description:
       "A tool that helps improve keyboard input delay",
