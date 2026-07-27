@@ -32,19 +32,30 @@
       </a>
 
       <nav class="nav">
-        <button class="nav__toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
+  <button class="nav__toggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
 
-        <ul class="nav__links">
-          <li><button class="nav__link" data-game="all">All Games</button></li>
-          <li><button class="nav__link" data-game="GTA 5">GTA 5</button></li>
-          <li><button class="nav__link" data-game="Roblox">Roblox</button></li>
-          <li><button class="nav__link" data-game="Minecraft">Minecraft</button></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <ul class="nav__links">
+    <li><button class="nav__link" data-game="all">All Games</button></li>
+    <li><button class="nav__link" data-game="GTA 5">GTA 5</button></li>
+    <li><button class="nav__link" data-game="Roblox">Roblox</button></li>
+    <li><button class="nav__link" data-game="Minecraft">Minecraft</button></li>
+
+    <!-- NEW DROPDOWN -->
+    <li class="dropdown">
+      <button class="nav__link dropdown__toggle">More Games ▾</button>
+      <ul class="dropdown__menu">
+        <li><button class="dropdown__item" data-game="Fortnite">Fortnite</button></li>
+        <li><button class="dropdown__item" data-game="R6">Rainbow Six Siege</button></li>
+        <li><button class="dropdown__item" data-game="COD">Call of Duty</button></li>
+        <li><button class="dropdown__item" data-game="Spider-Man">Spider-Man</button></li>
+        <li><button class="dropdown__item" data-game="Elden Ring">Elden Ring</button></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
   <!-- Hero -->
   <section class="hero">
