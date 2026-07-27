@@ -52,7 +52,7 @@ const tutorials = [
     title: "Keyboard Input Optimization Tool",
     tag: "Performance",
     description:
-      "A tool that helps improve keyboard input delay",
+      "A tool that helps improve keyboard input delay and improve your editing.",
     youtubeId: "EeuTJC1ijys"
   }
 ];
