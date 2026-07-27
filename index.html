@@ -4,62 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Tempest Modz — clean modding tutorials for GTA 5, Roblox, Minecraft, and more."
-  >
+  <meta name="description" content="Tempest Modz — clean modding tutorials for GTA 5, Roblox, Minecraft, and more.">
 
   <title>Tempest Modz | Modding Tutorials Hub</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <!-- Site header / navbar -->
+
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="container header__inner">
-    <a href="#" class="brand">
-      <span class="brand__logo">TEMPΞST</span>
-      <span class="brand__tagline">Modz</span>
-    </a>
+    <div class="container header__inner">
 
-    <nav class="nav">
-      <button class="nav__toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- Brand -->
+      <a href="#" class="brand">
+        <span class="brand__logo">TEMPΞST</span>
+        <span class="brand__tagline">Modz</span>
+      </a>
 
-      <ul class="nav__links">
-        <li><button class="nav__link" data-game="all">All Games</button></li>
-        <li><button class="nav__link" data-game="GTA 5">GTA 5</button></li>
-        <li><button class="nav__link" data-game="Roblox">Roblox</button></li>
-        <li><button class="nav__link" data-game="Minecraft">Minecraft</button></li>
+      <!-- Navigation -->
+      <nav class="nav">
 
-        <!-- More Games dropdown -->
-        <li class="dropdown">
-          <button class="nav__link dropdown__toggle data-game="all"">More Games ▾</button>
-          <ul class="dropdown__menu">
-            <li><button class="dropdown__item" data-game="Fortnite">Fortnite</button></li>
-            <li><button class="dropdown__item" data-game="R6">R6 Siege</button></li>
-            <li><button class="dropdown__item" data-game="COD">Call of Duty</button></li>
-            
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        <!-- Mobile toggle -->
+        <button class="nav__toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
 
-  <!-- Hero -->
+        <!-- Main nav links -->
+        <ul class="nav__links">
+
+          <li><button class="nav__link tempest-hover" data-game="all">All Games</button></li>
+          <li><button class="nav__link tempest-hover" data-game="GTA 5">GTA 5</button></li>
+          <li><button class="nav__link tempest-hover" data-game="Roblox">Roblox</button></li>
+          <li><button class="nav__link tempest-hover" data-game="Minecraft">Minecraft</button></li>
+
+          <!-- Dropdown -->
+          <li class="dropdown">
+            <button class="nav__link dropdown__toggle tempest-hover">More Games ▾</button>
+
+            <ul class="dropdown__menu">
+              <li><button class="dropdown__item tempest-hover" data-game="Fortnite">Fortnite</button></li>
+              <li><button class="dropdown__item tempest-hover" data-game="R6">R6 Siege</button></li>
+              <li><button class="dropdown__item tempest-hover" data-game="COD">Call of Duty</button></li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero__content">
+
       <p class="eyebrow">
         <span aria-hidden="true" class="eyebrow__dot"></span>
         Clean tutorials only
@@ -77,33 +81,24 @@
       </p>
 
       <div class="hero__actions">
-        <a class="button button--primary" href="#tutorials">
-          Browse tutorials
-        </a>
-
-        <a
-          class="button button--secondary"
-          href="https://www.youtube.com/@Liv1ngTempest"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Subscribe on YouTube
-        </a>
+        <a class="button button--primary tempest-hover" href="#tutorials">Browse tutorials</a>
+        <a class="button button--secondary tempest-hover" href="https://www.youtube.com/@Liv1ngTempest" target="_blank" rel="noopener noreferrer">Subscribe on YouTube</a>
       </div>
+
     </div>
   </section>
 
+  <!-- MAIN CONTENT -->
   <main>
-    <!-- Tutorials section -->
+
     <section class="tutorials" id="tutorials" aria-labelledby="tutorials-heading">
       <div class="container">
+
+        <!-- Section heading -->
         <div class="section-heading">
           <div>
             <h2 id="tutorials-heading">Tutorials I actually stand by</h2>
-            <p>
-              Filter by game or search by name to find the exact tutorial you need.
-              Every video is something I’ve personally tested and used.
-            </p>
+            <p>Filter by game or search by name to find the exact tutorial you need. Every video is something I’ve personally tested and used.</p>
           </div>
 
           <p class="menu-count">
@@ -111,30 +106,28 @@
           </p>
         </div>
 
+        <!-- Search -->
         <div class="toolbar">
           <div class="search">
             <label for="search-input" class="search__label">Search tutorials</label>
-            <input
-              id="search-input"
-              class="search__input"
-              type="search"
-              placeholder="Search by title, tag, or game..."
-              autocomplete="off"
-            >
+            <input id="search-input" class="search__input" type="search" placeholder="Search by title, tag, or game..." autocomplete="off">
           </div>
         </div>
 
+        <!-- Tutorials grid -->
         <div class="menu-grid" id="tutorial-grid"></div>
 
-        <p class="empty-state" id="empty-state" hidden>
-          No tutorials match that search yet. Try a different keyword or game.
-        </p>
+        <p class="empty-state" id="empty-state" hidden>No tutorials match that search yet. Try a different keyword or game.</p>
+
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container footer__content">
+
       <div>
         <p class="footer__brand">Tempest Modz</p>
         <p>Modding tutorials for GTA 5, Roblox, Minecraft, and more. Use mods responsibly.</p>
@@ -142,10 +135,12 @@
 
       <div class="footer__links">
         <a href="https://www.youtube.com/@Liv1ngTempest" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="discord.gg/bHy6eRMNeV" aria-disabled="true">Discord</a>
-        <a href="#" aria-disabled="true">More games coming</a>
+        <a href="https://discord.gg/bHy6eRMNeV" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a aria-disabled="true">More games coming</a>
       </div>
+
     </div>
   </footer>
+
 </body>
 </html>
