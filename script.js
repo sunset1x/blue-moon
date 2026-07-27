@@ -80,6 +80,25 @@ dropdownToggle.addEventListener("click", () => {
   dropdown.classList.toggle("open");
 });
 
+// Dropdown item click → filter tutorials
+dropdownItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    activeGameFilter = item.dataset.game;
+
+    // Update active state on main nav links
+    navLinks.forEach((link) =>
+      link.classList.toggle("nav__link--active", link.dataset.game === activeGameFilter)
+    );
+
+    dropdown.classList.remove("open");
+    renderTutorials();
+  });
+});
+
+dropdownToggle.addEventListener("click", () => {
+  dropdown.classList.toggle("open");
+});
+
 
 let activeGameFilter = "all";
 let activeSearchQuery = "";
