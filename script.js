@@ -97,7 +97,7 @@ function createTutorialCard(tutorial) {
   playButton.className = "play-button";
   playButton.setAttribute("aria-hidden", "true");
 
-  // Actual YouTube embed
+  // Actual YouTube embed (hidden until clicked)
   const iframe = document.createElement("iframe");
   iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(
     tutorial.youtubeId
@@ -105,13 +105,16 @@ function createTutorialCard(tutorial) {
   iframe.allow =
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   iframe.allowFullscreen = true;
+  iframe.hidden = true;
 
-  // On click → swap thumbnail + play button for iframe
+  // When clicked → hide thumbnail + play button, show iframe
   videoWrapper.addEventListener("click", () => {
-    videoWrapper.replaceChildren(iframe);
+    thumbnail.hidden = true;
+    playButton.hidden = true;
+    iframe.hidden = false;
   });
 
-  videoWrapper.append(thumbnail, playButton);
+  videoWrapper.append(thumbnail, playButton, iframe);
 
   // Content section
   const content = document.createElement("div");
