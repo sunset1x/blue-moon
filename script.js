@@ -1,43 +1,76 @@
-/* -------------------------------------------------------
-   TEMPΞST MODZ — CLEAN REBUILT JS (2026 Edition)
-   ------------------------------------------------------- */
-
-/* ---------- TUTORIAL DATA ---------- */
+// Core tutorial data — you can swap YouTube IDs with your real ones later.
 const tutorials = [
-  { game: "GTA 5", title: "Beginner Story Mode Menu", tag: "Starter",
-    description: "A straightforward Story Mode menu to learn basic controls, safe options, and how to install mods without breaking your game.",
-    youtubeId: "dQw4w9WgXcQ" },
+  // GTA 5
+  {
+    game: "GTA 5",
+    title: "Beginner Story Mode Menu",
+    tag: "Starter",
+    description:
+      "A straightforward Story Mode menu to learn basic controls, safe options, and how to install mods without breaking your game.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  {
+    game: "GTA 5",
+    title: "Simple Trainer Setup",
+    tag: "Installation",
+    description:
+      "Step‑by‑step trainer install, config, and the first features you should try in Story Mode.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  {
+    game: "GTA 5",
+    title: "Advanced Trainer Guide",
+    tag: "Advanced",
+    description:
+      "Deeper configuration for players who already understand basic mod setup and want more control.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
 
-  { game: "GTA 5", title: "Simple Trainer Setup", tag: "Installation",
-    description: "Step‑by‑step trainer install, config, and the first features you should try in Story Mode.",
-    youtubeId: "dQw4w9WgXcQ" },
+  // Roblox
+  {
+    game: "Roblox",
+    title: "Safe Modding & FPS Boost",
+    tag: "Performance",
+    description:
+      "How to safely tweak Roblox settings, boost FPS, and avoid sketchy executors or shady downloads.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  {
+    game: "Roblox",
+    title: "Building Custom Keybinds",
+    tag: "Controls",
+    description:
+      "Set up clean keybinds and macros for Roblox without breaking ToS or risking your account.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
 
-  { game: "GTA 5", title: "Advanced Trainer Guide", tag: "Advanced",
-    description: "Deeper configuration for players who already understand basic mod setup and want more control.",
-    youtubeId: "dQw4w9WgXcQ" },
-
-  { game: "Roblox", title: "Safe Modding & FPS Boost", tag: "Performance",
-    description: "How to safely tweak Roblox settings, boost FPS, and avoid sketchy executors or shady downloads.",
-    youtubeId: "dQw4w9WgXcQ" },
-
-  { game: "Roblox", title: "Building Custom Keybinds", tag: "Controls",
-    description: "Set up clean keybinds and macros for Roblox without breaking ToS or risking your account.",
-    youtubeId: "dQw4w9WgXcQ" },
-
-  { game: "Minecraft", title: "Mod Loader Setup (Forge/Fabric)", tag: "Setup",
-    description: "Install Forge or Fabric the right way, manage mod packs, and keep your worlds safe.",
-    youtubeId: "dQw4w9WgXcQ" },
-
-  { game: "Minecraft", title: "Client Mods for PvP", tag: "PvP",
-    description: "A look at popular PvP clients, what’s allowed, and how to configure them without getting banned.",
-    youtubeId: "dQw4w9WgXcQ" },
-
-  { game: "Fortnite", title: "Keyboard Input Optimization Tool", tag: "Performance",
-    description: "A tool that helps improve keyboard input delay.",
-    youtubeId: "EeuTJC1ijys" }
+  // Minecraft
+  {
+    game: "Minecraft",
+    title: "Mod Loader Setup (Forge/Fabric)",
+    tag: "Setup",
+    description:
+      "Install Forge or Fabric the right way, manage mod packs, and keep your worlds safe.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  {
+    game: "Minecraft",
+    title: "Client Mods for PvP",
+    tag: "PvP",
+    description:
+      "A look at popular PvP clients, what’s allowed, and how to configure them without getting banned.",
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  {
+    game: "Fortnite",
+    title: "Keyboard Input Optimization Tool",
+    tag: "Performance",
+    description:
+      "A tool that helps improve keyboard input delay",
+    youtubeId: "EeuTJC1ijys"
+  }
 ];
 
-/* ---------- DOM ELEMENTS ---------- */
 const grid = document.querySelector("#tutorial-grid");
 const count = document.querySelector("#tutorial-count");
 const emptyState = document.querySelector("#empty-state");
@@ -51,45 +84,53 @@ const dropdown = document.querySelector(".dropdown");
 const dropdownToggle = document.querySelector(".dropdown__toggle");
 const dropdownItems = Array.from(document.querySelectorAll(".dropdown__item"));
 
-/* ---------- STATE ---------- */
 let activeGameFilter = "all";
 let activeSearchQuery = "";
 
-/* -------------------------------------------------------
-   CREATE TUTORIAL CARD
-   ------------------------------------------------------- */
+// Create a single tutorial card
 function createTutorialCard(tutorial) {
   const card = document.createElement("div");
-  card.className = "menu-card tempest-hover";
+  card.className = "menu-card";
 
-  /* --- Video wrapper --- */
+  // Video wrapper
   const videoWrapper = document.createElement("div");
   videoWrapper.className = "menu-card__video";
 
+  // Thumbnail
   const thumbnail = document.createElement("img");
-  thumbnail.src = `https://i.ytimg.com/vi/${tutorial.youtubeId}/hqdefault.jpg`;
+  thumbnail.src = `https://i.ytimg.com/vi/${encodeURIComponent(
+    tutorial.youtubeId
+  )}/hqdefault.jpg`;
   thumbnail.alt = "";
   thumbnail.loading = "lazy";
 
+  // Play button overlay
   const playButton = document.createElement("span");
   playButton.className = "play-button";
+  playButton.setAttribute("aria-hidden", "true");
 
+  // Actual YouTube embed
   const iframe = document.createElement("iframe");
-  iframe.src = `https://www.youtube.com/embed/${tutorial.youtubeId}?autoplay=1`;
+  iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(
+    tutorial.youtubeId
+  )}?autoplay=1`;
   iframe.allow =
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   iframe.allowFullscreen = true;
 
-  /* --- Click to play --- */
+  // On click → swap thumbnail + play button for iframe
   videoWrapper.addEventListener("click", () => {
-    videoWrapper.replaceChildren(iframe);
-    videoWrapper.classList.add("playing");
-    card.classList.add("video-active");
-  });
+  // Replace thumbnail with iframe
+  videoWrapper.replaceChildren(iframe);
+
+  // Allow interaction with the video
+  videoWrapper.classList.add("playing");
+  card.classList.add("video-active");
+});
 
   videoWrapper.append(thumbnail, playButton);
 
-  /* --- Content --- */
+  // Content section
   const content = document.createElement("div");
   content.className = "menu-card__content";
 
@@ -115,12 +156,12 @@ function createTutorialCard(tutorial) {
   content.append(meta, title, description);
 
   card.append(videoWrapper, content);
+
   return card;
 }
 
-/* -------------------------------------------------------
-   FILTER TUTORIALS
-   ------------------------------------------------------- */
+
+// Filter tutorials based on active game + search
 function getFilteredTutorials() {
   const query = activeSearchQuery.trim().toLowerCase();
 
@@ -129,6 +170,7 @@ function getFilteredTutorials() {
       activeGameFilter === "all" || tutorial.game === activeGameFilter;
 
     if (!matchesGame) return false;
+
     if (!query) return true;
 
     const haystack = [
@@ -136,15 +178,15 @@ function getFilteredTutorials() {
       tutorial.tag,
       tutorial.game,
       tutorial.description
-    ].join(" ").toLowerCase();
+    ]
+      .join(" ")
+      .toLowerCase();
 
     return haystack.includes(query);
   });
 }
 
-/* -------------------------------------------------------
-   RENDER TUTORIALS
-   ------------------------------------------------------- */
+// Render tutorials into the grid
 function renderTutorials() {
   const filtered = getFilteredTutorials();
   const fragment = document.createDocumentFragment();
@@ -154,17 +196,21 @@ function renderTutorials() {
   });
 
   grid.replaceChildren(fragment);
-  count.textContent = filtered.length;
+  count.textContent = String(filtered.length);
 
-  emptyState.hidden = filtered.length !== 0;
+  if (filtered.length === 0) {
+    emptyState.hidden = false;
+  } else {
+    emptyState.hidden = true;
+  }
 }
 
-/* -------------------------------------------------------
-   NAVIGATION HANDLERS
-   ------------------------------------------------------- */
+// Handle nav filter clicks
 function handleNavClick(event) {
   const button = event.currentTarget;
-  activeGameFilter = button.dataset.game;
+  const game = button.dataset.game;
+
+  activeGameFilter = game;
 
   navLinks.forEach((link) =>
     link.classList.toggle("nav__link--active", link === button)
@@ -173,40 +219,42 @@ function handleNavClick(event) {
   renderTutorials();
 }
 
+// Handle search input
 function handleSearchInput(event) {
   activeSearchQuery = event.target.value;
   renderTutorials();
 }
 
+// Handle mobile nav toggle
 function handleNavToggle() {
   navLinksContainer.classList.toggle("nav__links--open");
 }
 
-/* -------------------------------------------------------
-   INITIALIZE
-   ------------------------------------------------------- */
+// Initial setup
 function init() {
-  /* Default active link */
+  // Set default active nav link
   const defaultLink = navLinks.find((link) => link.dataset.game === "all");
-  if (defaultLink) defaultLink.classList.add("nav__link--active");
+  if (defaultLink) {
+    defaultLink.classList.add("nav__link--active");
+  }
 
-  /* Nav link clicks */
   navLinks.forEach((link) => {
     link.addEventListener("click", handleNavClick);
   });
 
-  /* Dropdown toggle */
-  if (dropdownToggle) {
+// Dropdown toggle
+  if (dropdownToggle && dropdown) {
     dropdownToggle.addEventListener("click", () => {
       dropdown.classList.toggle("open");
     });
   }
 
-  /* Dropdown item clicks */
+  // Dropdown items filter
   dropdownItems.forEach((item) => {
     item.addEventListener("click", () => {
       activeGameFilter = item.dataset.game;
 
+      // Update active state on main nav links
       navLinks.forEach((link) =>
         link.classList.toggle(
           "nav__link--active",
@@ -214,22 +262,21 @@ function init() {
         )
       );
 
+      // Close dropdown
       dropdown.classList.remove("open");
+
       renderTutorials();
     });
   });
-
-  /* Search */
+  
   if (searchInput) {
     searchInput.addEventListener("input", handleSearchInput);
   }
 
-  /* Mobile nav */
   if (navToggle) {
     navToggle.addEventListener("click", handleNavToggle);
   }
 
-  /* Initial render */
   renderTutorials();
 }
 
