@@ -2,65 +2,51 @@
 const tutorials = [
   // GTA 5
   {
-    game: "GTA 5",
-    title: "Beginner Story Mode Menu",
-    tag: "Starter",
+    game: "GTA 5 Online",
+    title: "Cherax",
+    tag: "Paid | Recommend | Full Guide",
     description:
-      "A straightforward Story Mode menu to learn basic controls, safe options, and how to install mods without breaking your game.",
+      "The most powerful and reliable paid GTA V mod menu for thoes willing to spend a bit of change.",
     youtubeId: "dQw4w9WgXcQ"
   },
   {
-    game: "GTA 5",
-    title: "Simple Trainer Setup",
-    tag: "Installation",
+    game: "GTA 5 Online",
+    title: "YimMenu V2",
+    tag: "Free | Recommend",
     description:
-      "Step‑by‑step trainer install, config, and the first features you should try in Story Mode.",
-    youtubeId: "dQw4w9WgXcQ"
+      "A full guide to the best Free GTA5 Online menu from installation to showcase for GTA5 Enhanched Edition.",
+    youtubeId: "ddmhUIjrmoU"
   },
   {
-    game: "GTA 5",
-    title: "Advanced Trainer Guide",
-    tag: "Advanced",
+    game: "GTA 5 Online",
+    title: "YimMenu",
+    tag: "Free | Guide",
     description:
-      "Deeper configuration for players who already understand basic mod setup and want more control.",
-    youtubeId: "dQw4w9WgXcQ"
+      "A full guide to the best Free GTA5 Online menu from installation to showcase for GTA5 Legacy Edition.",
+    youtubeId: "EhqrD2KMqWs"
   },
 
   // Roblox
   {
     game: "Roblox",
-    title: "Safe Modding & FPS Boost",
-    tag: "Performance",
+    title: "Vega X",
+    tag: "Exploit",
     description:
-      "How to safely tweak Roblox settings, boost FPS, and avoid sketchy executors or shady downloads.",
-    youtubeId: "dQw4w9WgXcQ"
-  },
-  {
-    game: "Roblox",
-    title: "Building Custom Keybinds",
-    tag: "Controls",
-    description:
-      "Set up clean keybinds and macros for Roblox without breaking ToS or risking your account.",
-    youtubeId: "dQw4w9WgXcQ"
+      "The best roblox script / cheat client on the market with a full bypass for moblie and PC Emulators",
+    youtubeId: "i1fl0Kg6RkE"
   },
 
   // Minecraft
   {
     game: "Minecraft",
-    title: "Mod Loader Setup (Forge/Fabric)",
-    tag: "Setup",
+    title: "Buy and Sell Shop",
+    tag: "Guide",
     description:
-      "Install Forge or Fabric the right way, manage mod packs, and keep your worlds safe.",
-    youtubeId: "dQw4w9WgXcQ"
+      "Create a functional Buy and Sell Shop inside of Minecraft Bedrock edition using command blocks.",
+    youtubeId: "y4phtjEMM3E"
   },
-  {
-    game: "Minecraft",
-    title: "Client Mods for PvP",
-    tag: "PvP",
-    description:
-      "A look at popular PvP clients, what’s allowed, and how to configure them without getting banned.",
-    youtubeId: "dQw4w9WgXcQ"
-  },
+
+  // Fortnite
   {
     game: "Fortnite",
     title: "Keyboard Input Optimization Tool",
