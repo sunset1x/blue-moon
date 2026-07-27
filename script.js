@@ -60,7 +60,7 @@ const tutorials = [
     description:
       "A look at popular PvP clients, what’s allowed, and how to configure them without getting banned.",
     youtubeId: "dQw4w9WgXcQ"
-  }
+  },
   {
     game: "Fortnite",
     title: "Keyboard Input Optimization Tool",
