@@ -7,7 +7,7 @@ const tutorials = [
     tag: "Paid | Recommend | Full Guide",
     description:
       "The most powerful and reliable paid GTA V mod menu for thoes willing to spend a bit of change.",
-    youtubeId: "dQw4w9WgXcQ"
+    youtubeId: "nK_y97QGVQI"
   },
   {
     game: "GTA 5 Online",
