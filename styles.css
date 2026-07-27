@@ -333,10 +333,16 @@ h1 span {
     box-shadow 160ms ease;
 }
 
-.button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+.button {
+  transform: translateZ(0); /* GPU acceleration */
 }
+
+.button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+  filter: brightness(1.08);
+}
+
 
 .button:focus-visible,
 .menu-card:focus-visible,
@@ -458,11 +464,16 @@ h1 span {
     box-shadow 160ms ease;
 }
 
+.menu-card {
+  transform: translateZ(0);
+}
+
 .menu-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.015);
   border-color: var(--accent-light);
   background: var(--surface-hover);
-  box-shadow: 0 22px 38px rgba(0, 10, 18, 0.32);
+  box-shadow: 0 26px 48px rgba(0, 10, 18, 0.38);
+  filter: brightness(1.06);
 }
 
 .menu-card__video {
