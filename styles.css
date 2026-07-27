@@ -160,23 +160,25 @@ iframe {
   background: var(--accent-light);
 }
 
-/* Dropdown container */
+/* Prevent dropdown from affecting layout */
 .dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* Dropdown toggle button */
+/* Dropdown toggle */
 .dropdown__toggle {
   display: inline-flex;
   align-items: center;
 }
 
-/* Dropdown menu */
+/* Dropdown menu (absolute so it doesn't push layout) */
 .dropdown__menu {
   position: absolute;
-  top: 36px;
+  top: 38px;
   right: 0;
-  min-width: 160px;
+  min-width: 170px;
   padding: 10px;
   border-radius: 12px;
   background: rgba(0, 31, 46, 0.96);
@@ -186,7 +188,7 @@ iframe {
   display: none;
   flex-direction: column;
   gap: 8px;
-  z-index: 50;
+  z-index: 9999; /* IMPORTANT */
 }
 
 /* Show dropdown */
@@ -206,17 +208,12 @@ iframe {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
 }
 
 .dropdown__item:hover {
   border-color: var(--accent);
   color: var(--heading);
 }
-
 
 /* Hero */
 
