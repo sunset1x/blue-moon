@@ -61,6 +61,14 @@ const tutorials = [
       "A look at popular PvP clients, what’s allowed, and how to configure them without getting banned.",
     youtubeId: "dQw4w9WgXcQ"
   }
+  {
+    game: "Fortnite",
+    title: "Keyboard Optimization Tool",
+    tag: "Performance",
+    description:
+      "A tool that helps improve keyboard input delay",
+    youtubeId: "EeuTJC1ijys"
+  }
 ];
 
 const grid = document.querySelector("#tutorial-grid");
