@@ -76,30 +76,6 @@ const dropdown = document.querySelector(".dropdown");
 const dropdownToggle = document.querySelector(".dropdown__toggle");
 const dropdownItems = Array.from(document.querySelectorAll(".dropdown__item"));
 
-dropdownToggle.addEventListener("click", () => {
-  dropdown.classList.toggle("open");
-});
-
-// Dropdown item click → filter tutorials
-dropdownItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    activeGameFilter = item.dataset.game;
-
-    // Update active state on main nav links
-    navLinks.forEach((link) =>
-      link.classList.toggle("nav__link--active", link.dataset.game === activeGameFilter)
-    );
-
-    dropdown.classList.remove("open");
-    renderTutorials();
-  });
-});
-
-dropdownToggle.addEventListener("click", () => {
-  dropdown.classList.toggle("open");
-});
-
-
 let activeGameFilter = "all";
 let activeSearchQuery = "";
 
@@ -258,6 +234,33 @@ function init() {
     link.addEventListener("click", handleNavClick);
   });
 
+// Dropdown toggle
+  if (dropdownToggle && dropdown) {
+    dropdownToggle.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
+    });
+  }
+
+  // Dropdown items filter
+  dropdownItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      activeGameFilter = item.dataset.game;
+
+      // Update active state on main nav links
+      navLinks.forEach((link) =>
+        link.classList.toggle(
+          "nav__link--active",
+          link.dataset.game === activeGameFilter
+        )
+      );
+
+      // Close dropdown
+      dropdown.classList.remove("open");
+
+      renderTutorials();
+    });
+  });
+  
   if (searchInput) {
     searchInput.addEventListener("input", handleSearchInput);
   }
