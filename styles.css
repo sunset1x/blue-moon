@@ -16,19 +16,14 @@
   --radius: 13px;
 }
 
-/* Smooth transitions globally */
+/* Global smooth animation system */
 * {
-  transition:
-    background-color 220ms ease,
-    border-color 220ms ease,
-    color 220ms ease,
-    transform 220ms ease,
-    box-shadow 220ms ease;
+  transition-property: background-color, border-color, color, transform, box-shadow, filter;
+  transition-duration: 280ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1); /* premium easing */
+  will-change: transform, box-shadow, filter;
 }
 
-* {
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
 
 *,
 *::before,
