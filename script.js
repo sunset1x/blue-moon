@@ -72,6 +72,15 @@ const navLinks = Array.from(document.querySelectorAll(".nav__link"));
 const navToggle = document.querySelector(".nav__toggle");
 const navLinksContainer = document.querySelector(".nav__links");
 
+const dropdown = document.querySelector(".dropdown");
+const dropdownToggle = document.querySelector(".dropdown__toggle");
+const dropdownItems = Array.from(document.querySelectorAll(".dropdown__item"));
+
+dropdownToggle.addEventListener("click", () => {
+  dropdown.classList.toggle("open");
+});
+
+
 let activeGameFilter = "all";
 let activeSearchQuery = "";
 
