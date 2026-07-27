@@ -77,21 +77,14 @@ let activeSearchQuery = "";
 
 // Create a single tutorial card
 function createTutorialCard(tutorial) {
-  const card = document.createElement("a");
+  const card = document.createElement("div");
   card.className = "menu-card";
-  card.href = `https://www.youtube.com/watch?v=${encodeURIComponent(
-    tutorial.youtubeId
-  )}`;
-  card.target = "_blank";
-  card.rel = "noopener noreferrer";
-  card.setAttribute(
-    "aria-label",
-    `Watch ${tutorial.title} (${tutorial.game}) on YouTube`
-  );
 
-  const video = document.createElement("div");
-  video.className = "menu-card__video";
+  // Video wrapper
+  const videoWrapper = document.createElement("div");
+  videoWrapper.className = "menu-card__video";
 
+  // Thumbnail
   const thumbnail = document.createElement("img");
   thumbnail.src = `https://i.ytimg.com/vi/${encodeURIComponent(
     tutorial.youtubeId
@@ -99,10 +92,31 @@ function createTutorialCard(tutorial) {
   thumbnail.alt = "";
   thumbnail.loading = "lazy";
 
+  // Play button overlay
   const playButton = document.createElement("span");
   playButton.className = "play-button";
   playButton.setAttribute("aria-hidden", "true");
 
+  // Actual YouTube embed (hidden until clicked)
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(
+    tutorial.youtubeId
+  )}?autoplay=1`;
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+  iframe.hidden = true;
+
+  // When clicked → hide thumbnail + play button, show iframe
+  videoWrapper.addEventListener("click", () => {
+    thumbnail.hidden = true;
+    playButton.hidden = true;
+    iframe.hidden = false;
+  });
+
+  videoWrapper.append(thumbnail, playButton, iframe);
+
+  // Content section
   const content = document.createElement("div");
   content.className = "menu-card__content";
 
@@ -124,10 +138,10 @@ function createTutorialCard(tutorial) {
   description.className = "menu-card__description";
   description.textContent = tutorial.description;
 
-  video.append(thumbnail, playButton);
   meta.append(tag, game);
   content.append(meta, title, description);
-  card.append(video, content);
+
+  card.append(videoWrapper, content);
 
   return card;
 }
